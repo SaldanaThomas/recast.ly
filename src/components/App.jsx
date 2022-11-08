@@ -2,8 +2,15 @@ import Search from './Search.js';
 import VideoPlayer from './VideoPlayer.js';
 import VideoList from './VideoList.js';
 import ExampleVideoData from '/src/data/exampleVideoData.js';
+const {useState} = React;
 
-const App = (props) => {
+const App = () => {
+  const [data, setData] = useState([]);
+  const [video, setVideo] = useState({});
+
+  const videoClick = (event) => {
+    setVideo(event);
+  };
 
   return (
     <div>
@@ -14,10 +21,10 @@ const App = (props) => {
       </nav>
       <div className="row">
         <div className="col-md-7">
-          <div><h5><em>videoPlayer</em><VideoPlayer /></h5></div>
+          <div><h5><em>videoPlayer</em><VideoPlayer video={ExampleVideoData[0]}/></h5></div>
         </div>
         <div className="col-md-5">
-          <div><h5><em>videoList</em> <VideoList videos={ExampleVideoData}/></h5></div>
+          <div><h5><em>videoList</em> <VideoList videos={ExampleVideoData} videoClick={videoClick}/></h5></div>
         </div>
       </div>
     </div>

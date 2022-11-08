@@ -1,9 +1,7 @@
 var VideoListEntry = (props) => {
-  // console.log(props.type);
   const Title = props.video.snippet.title;
   const Description = props.video.snippet.description;
   const Thumbnail = props.video.snippet.thumbnails.default.url;
-  console.log('VideoListEntry: ', props);
 
   return (
     <div className="video-list-entry media">
@@ -11,7 +9,7 @@ var VideoListEntry = (props) => {
         <img className="media-object" src={Thumbnail} alt="" />
       </div>
       <div className="media-body">
-        <div className="video-list-entry-title">{Title}</div>
+        <div className="video-list-entry-title" onClick={() => props.videoClick(props.video)}>{Title}</div>
         <div className="video-list-entry-detail">{Description}</div>
       </div>
     </div>
