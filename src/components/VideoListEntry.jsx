@@ -6,7 +6,7 @@ var VideoListEntry = (props) => {
   return (
     <div className="video-list-entry media">
       <div className="media-left media-middle">
-        <img className="media-object" src={Thumbnail} alt="" />
+        <img className="media-object" src={Thumbnail} alt=""/>
       </div>
       <div className="media-body">
         <div className="video-list-entry-title" onClick={() => props.videoClick(props.video)}>{Title}</div>

@@ -5,26 +5,31 @@ import ExampleVideoData from '/src/data/exampleVideoData.js';
 const {useState} = React;
 
 const App = () => {
-  const [data, setData] = useState([]);
-  const [video, setVideo] = useState({});
+  const [data, setData] = useState(ExampleVideoData);
+  const [video, setVideo] = useState(ExampleVideoData[0]);
+  const [search, setSearch] = useState([]);
 
   const videoClick = (event) => {
     setVideo(event);
+  };
+
+  const searchClick = (event) => {
+    setSearch(event);
   };
 
   return (
     <div>
       <nav className="navbar">
         <div className="col-md-6 offset-md-3">
-          <div><h5><em>search</em><Search /></h5></div>
+          <div><h5><em>search</em><Search search={search} searchClick={searchClick}/></h5></div>
         </div>
       </nav>
       <div className="row">
         <div className="col-md-7">
-          <div><h5><em>videoPlayer</em><VideoPlayer video={ExampleVideoData[0]}/></h5></div>
+          <div><h5><em>videoPlayer</em><VideoPlayer video={video}/></h5></div>
         </div>
         <div className="col-md-5">
-          <div><h5><em>videoList</em> <VideoList videos={ExampleVideoData} videoClick={videoClick}/></h5></div>
+          <div><h5><em>videoList</em> <VideoList videos={data} videoClick={videoClick}/></h5></div>
         </div>
       </div>
     </div>

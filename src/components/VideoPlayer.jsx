@@ -1,14 +1,12 @@
-var VideoPlayer = (props) => {
-  const Title = props.video.snippet.title;
-  const Description = props.video.snippet.description;
-  const Thumbnail = props.video.snippet.thumbnails.default.url;
-  const Video = props.video.id.videoId;
-  console.log(props);
+var VideoPlayer = ({video} = props.video) => {
+  const Title = video.snippet.title;
+  const Description = video.snippet.description;
+  const Video = video.id.videoId;
 
   return (
     <div className="video-player">
       <div className="embed-responsive embed-responsive-16by9">
-        <iframe className="embed-responsive-item" src={Video} allowFullScreen></iframe>
+        <iframe className="embed-responsive-item" src={`https://www.youtube.com/embed/${Video}`} allowFullScreen></iframe>
       </div>
       <div className="video-player-details">
         <h3>{Title}</h3>
