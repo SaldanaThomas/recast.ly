@@ -1,14 +1,22 @@
-var VideoListEntry = () => (
-  <div className="video-list-entry media">
-    <div className="media-left media-middle">
-      <img className="media-object" src="https://i.ytimg.com/vi/1w8Z0UOXVaY/default.jpg" alt="" />
+var VideoListEntry = (props) => {
+  // console.log(props.type);
+  const Title = props.video.snippet.title;
+  const Description = props.video.snippet.description;
+  const Thumbnail = props.video.snippet.thumbnails.default.url;
+  console.log('VideoListEntry: ', props);
+
+  return (
+    <div className="video-list-entry media">
+      <div className="media-left media-middle">
+        <img className="media-object" src={Thumbnail} alt="" />
+      </div>
+      <div className="media-body">
+        <div className="video-list-entry-title">{Title}</div>
+        <div className="video-list-entry-detail">{Description}</div>
+      </div>
     </div>
-    <div className="media-body">
-      <div className="video-list-entry-title">Video Title</div>
-      <div className="video-list-entry-detail">Video Description</div>
-    </div>
-  </div>
-);
+  );
+};
 
 // PropTypes tell other developers what `props` a component expects
 // Warnings will be shown in the console when the defined rules are violated
