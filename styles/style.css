@@ -1,11 +1,11 @@
 @import url("http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css");
 
 body {
-  background: #f1f1f1;
+  background: darkslategray;
 }
 
 .navbar {
-  background: #fff;
+  background: darkslategray;
   margin-bottom: 20px;
 }
 
@@ -19,6 +19,10 @@ body {
   background: #fff;
 }
 
+.form-control {
+  background-color: lightblue;
+}
+
 .search-bar .form-control {
   border-radius: 2px;
   width: 80%
@@ -26,7 +30,7 @@ body {
 .search-bar .btn {
   border-radius: 2px;
   border-color: #d3d3d3;
-  background: #f8f8f8;
+  background: teal;
   width: 20%;
   margin-left: -1px;
 }
@@ -42,7 +46,8 @@ body {
 }
 
 .video-player-details {
-  background: #fff;
+  background: teal;
+  color: white ;
   padding: 8px;
   border: 0;
   box-shadow: 0 1px 2px rgba(0,0,0,.1);
@@ -50,7 +55,7 @@ body {
 }
 
 .video-list {
-  background: #fff;
+  background: lightblue;
   padding: 8px;
   border: 0;
   box-shadow: 0 1px 2px rgba(0,0,0,.1);
@@ -67,13 +72,13 @@ body {
 }
 
 .video-list-entry-title:hover {
-  color: #e62117;
+  color: orange;
   cursor: pointer;
 }
 
 .video-list-entry-detail {
   font-size: 12px;
-  color: #999;
+  color: darkslategrey;
 }
 
 .loading {

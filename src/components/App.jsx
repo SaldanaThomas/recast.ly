@@ -2,34 +2,41 @@ import Search from './Search.js';
 import VideoPlayer from './VideoPlayer.js';
 import VideoList from './VideoList.js';
 import ExampleVideoData from '/src/data/exampleVideoData.js';
-const {useState} = React;
+import searchYouTube from '/src/lib/searchYouTube.js';
 
 const App = () => {
-  const [data, setData] = useState(ExampleVideoData);
-  const [video, setVideo] = useState(ExampleVideoData[0]);
-  const [search, setSearch] = useState([]);
+  const [data, setData] = React.useState([]);
+  const [video, setVideo] = React.useState(ExampleVideoData[0]);
 
   const videoClick = (event) => {
     setVideo(event);
   };
 
-  const searchClick = (event) => {
-    setSearch(event);
+  let timeout = null;
+
+  const searchHandler = (event) => {
+    let query = event.target.value;
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      searchYouTube(query, (videos => {
+        setData(videos);
+      }));
+    }, 500);
   };
 
   return (
     <div>
       <nav className="navbar">
         <div className="col-md-6 offset-md-3">
-          <div><h5><em>search</em><Search search={search} searchClick={searchClick}/></h5></div>
+          <Search searchHandler={(input) => searchHandler(input)}/>
         </div>
       </nav>
       <div className="row">
         <div className="col-md-7">
-          <div><h5><em>videoPlayer</em><VideoPlayer video={video}/></h5></div>
+          <VideoPlayer video={video}/>
         </div>
         <div className="col-md-5">
-          <div><h5><em>videoList</em> <VideoList videos={data} videoClick={videoClick}/></h5></div>
+          <VideoList videos={data} videoClick={videoClick}/>
         </div>
       </div>
     </div>
