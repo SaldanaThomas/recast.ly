@@ -1,3 +1,4 @@
+const {useState, useEffect} = React;
 import Search from './Search.js';
 import VideoPlayer from './VideoPlayer.js';
 import VideoList from './VideoList.js';
@@ -5,8 +6,8 @@ import ExampleVideoData from '/src/data/exampleVideoData.js';
 import searchYouTube from '/src/lib/searchYouTube.js';
 
 const App = () => {
-  const [data, setData] = React.useState([]);
-  const [video, setVideo] = React.useState(ExampleVideoData[0]);
+  const [data, setData] = useState([]);
+  const [video, setVideo] = useState(ExampleVideoData[0]);
 
   const videoClick = (event) => {
     setVideo(event);
@@ -15,7 +16,9 @@ const App = () => {
   let timeout = null;
 
   const searchHandler = (event) => {
+    console.log(`Event: ${event}`);
     let query = event.target.value;
+    console.log(`Query: ${query}`);
     clearTimeout(timeout);
     timeout = setTimeout(() => {
       searchYouTube(query, (videos => {
@@ -23,6 +26,10 @@ const App = () => {
       }));
     }, 500);
   };
+
+  // useEffect(() => {
+  //   searchYouTube('react tutorials');
+  // }, []);
 
   return (
     <div>

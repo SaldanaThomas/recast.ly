@@ -1,7 +1,7 @@
 var Search = ({searchHandler}) => (
   <div className="search-bar form-inline">
-    <input onChange={(input) => searchHandler(input)}className="form-control" type="text" />
-    <button className="btn hidden-sm-down" onClick={() => data.searchYouTube('Minecraft', data.searchClick)}>
+    <input onChange={(input) => searchHandler(input)} className="form-control" type="text" />
+    <button className="btn hidden-sm-down" onClick={(input) => searchHandler(input)}>
       <span className="glyphicon glyphicon-search"></span>
     </button>
   </div>
