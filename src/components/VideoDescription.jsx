@@ -1,19 +1,23 @@
-// description
-// channelTitle
-// publishedAt
-var VideoDescription = (video) => {
-  const Title = video.snippet.title;
-  const Description = video.snippet.description;
-  const Video = video.id.videoId;
+var VideoDescription = (videoData) => {
+  console.log(videoData);
+  const Title = videoData.title;
+  const Description = videoData.description;
+  const PublishedAt = videoData.publishedAt;
+  const ChannelTitle = videoData.channelTitle;
 
   return (
-    <div className="video-player">
-      <div className="embed-responsive embed-responsive-16by9">
-        <iframe className="embed-responsive-item" src={`https://www.youtube.com/embed/${Video}`} allowFullScreen></iframe>
+    <div>
+      <div>
+        <h1>{Title}</h1>
       </div>
-      <div className="video-player-details">
-        <h3>{Title}</h3>
-        <div>{Description}</div>
+      <div>
+        <h2>{Description}</h2>
+      </div>
+      <div>
+        <h3>{ChannelTitle}</h3>
+      </div>
+      <div>
+        <h4>{PublishedAt}</h4>
       </div>
     </div>
   );

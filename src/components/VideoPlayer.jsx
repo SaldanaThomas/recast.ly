@@ -1,4 +1,4 @@
-import VideoDescription from './VideoDescription.jsx.js';
+import VideoDescription from './VideoDescription.js';
 
 var VideoPlayer = ({video} = props.video) => {
   const Title = video.snippet.title;
@@ -12,7 +12,7 @@ var VideoPlayer = ({video} = props.video) => {
       </div>
       <div className="video-player-details">
         <h3>{Title}</h3>
-        <div></div>
+        <div><VideoDescription videoData={video.snippet}/></div>
       </div>
     </div>
   );
